@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>DJango CRUD Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="container">
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">Django CRUD App</span>
+    <a href="newpost" class="btn btn-primary">New Post</a>
+</nav>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Post ID</th>
+            <th>Post Title</th>
+            <th>Content</th>
+            <th>Created On</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for post in allPosts %}
+        <tr>
+            <td>{{post.id}}</td>
+            <td>{{post.title}}</td>
+            <td>{{post.content}}</td>
+            <td>{{post.created_on}}</td>
+            <td>
+                <a class="btn btn-success" href="edit/{{post.id}}">Edit</a>
+                <a class="btn btn-danger" href="delete/{{post.id}}" onclick="return confirm('Are you sure')">Delete</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
