@@ -20,7 +20,7 @@ def post(request):
     id = request.POST['id']
     title = request.POST['title']
     content = request.POST['content']
-    if(id==0):
+    if(id=="0"):
         post = Posts(title=title, content=content, created_on=timezone.now())
     else:
         post = get_object_or_404(Posts,pk=id)
