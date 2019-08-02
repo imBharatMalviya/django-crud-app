@@ -21,7 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index),
     path('newpost',views.newpost),
-    path('post',views.post),
     path('delete/<int:id>',views.delete),
     path('edit/<int:id>',views.edit)
 ]

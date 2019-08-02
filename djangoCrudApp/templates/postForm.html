@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Post Form| Django CRUD App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <style>
+        ul.errorlist {
+    margin: 0;
+    padding: 0;
+    }
+    .errorlist li {
+        border: 1px solid red;
+        color: red;
+        background: rgba(255, 0, 0, 0.15);
+        list-style-position: inside;
+        display: block;
+        font-size: 1.2em;
+        margin: 0 0 3px;
+        padding: 4px 5px;
+        text-align: center;
+        border-radius: 3px;
+    }
+    </style>
+</head>
+<body class="container">
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">Django CRUD App</span>
+    <a href="/" class="btn btn-warning">All Posts</a>
+</nav>
+<form action="" method="post">
+    {% csrf_token %}
+    {% if id %}
+    <input type="hidden" name="id" value="{{id}}"/>
+    {% else %}
+    <input type="hidden" name="id" value="0"/>
+    {% endif %}
+    {{postForm}}
+    <div class="form-group">
+        <input type="submit" id="submit" name="submit" value="{{buttonText}} Post" class="btn btn-success"/>
+    </div>
+</form>
+</body>
+</html>

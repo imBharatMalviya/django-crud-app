@@ -1,39 +1,35 @@
 <html>
 <head>
     <title>DJango CRUD Application</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 <body class="container">
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light bg-light" style="margin-bottom:20">
     <span class="navbar-brand mb-0 h1">Django CRUD App</span>
     <a href="newpost" class="btn btn-primary">New Post</a>
 </nav>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Post ID</th>
-            <th>Post Title</th>
-            <th>Content</th>
-            <th>Created On</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="row">
     {% for post in allPosts %}
-        <tr>
-            <td>{{post.id}}</td>
-            <td>{{post.title}}</td>
-            <td>{{post.content}}</td>
-            <td>{{post.created_on}}</td>
-            <td>
-                <a class="btn btn-success" href="edit/{{post.id}}">Edit</a>
-                <a class="btn btn-danger" href="delete/{{post.id}}" onclick="return confirm('Are you sure')">Delete</a>
-            </td>
-        </tr>
+    <div class="card-group col-md-3" style="margin-bottom:20">
+        <div class="card text-center" style="width: 18rem;">
+            <div class="card-header">
+                <h5>{{post.title}}</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{post.content}}</p>
+            </div>
+            <div class="card-footer text-right">
+                <p class="card-text"><small class="text-muted">Created on {{post.created_on}}</small>
+                    <a href="edit/{{post.id}}" class="card-link btn"><i class="fa fa-pencil-square-o"></i></a>
+                    <a href="delete/{{post.id}}" class="card-link btn"><i class="fa fa-trash"></i></a>
+                </p>
+            </div>
+        </div>
+    </div>
     {% endfor %}
-    </tbody>
-</table>
+</div>
 </body>
 </html>
